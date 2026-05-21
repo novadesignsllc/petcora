@@ -21,7 +21,7 @@ export default function HomePage() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-24 grid md:grid-cols-2 gap-5 md:gap-12 items-center">
           {/* Product image — first on mobile, second on desktop */}
           <div className="relative flex items-center justify-center order-1 md:order-2">
-            <div className="relative w-full max-w-[260px] md:max-w-sm mx-auto">
+            <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto pb-16 md:pb-0">
               <Link href={`/products/${bundle.slug}`}>
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <Image
@@ -37,15 +37,15 @@ export default function HomePage() {
                 </div>
               </Link>
 
-              {/* Savings callout — desktop only to avoid overflow */}
-              <div className="hidden md:flex absolute -bottom-5 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-xl px-4 py-3 items-center justify-between gap-3">
+              {/* Savings callout */}
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[95%] bg-white rounded-2xl shadow-xl px-3 md:px-4 py-3 flex items-center justify-between gap-2">
                 <div>
                   <p className="text-xs text-gray-500 font-medium">3-in-1 Bundle</p>
-                  <p className="text-sm font-black text-[#1A1A1A]">
+                  <p className="text-xs md:text-sm font-black text-[#1A1A1A]">
                     Shampoo + Conditioner + Towel
                   </p>
                   <div className="flex items-baseline gap-1.5 mt-0.5">
-                    <span className="text-base font-black text-[#1A1A1A]">${bundle.price}</span>
+                    <span className="text-sm md:text-base font-black text-[#1A1A1A]">${bundle.price}</span>
                     <span className="text-xs text-gray-400 line-through">${bundle.originalPrice}</span>
                     <span className="text-xs font-bold text-[#2E5FA3]">Save $14</span>
                   </div>
@@ -54,16 +54,16 @@ export default function HomePage() {
                   href={bundle.checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 bg-[#F0A500] hover:bg-[#C88A00] text-white text-xs font-black px-4 py-2.5 rounded-full transition-colors whitespace-nowrap"
+                  className="shrink-0 bg-[#F0A500] hover:bg-[#C88A00] text-white text-xs font-black px-3 md:px-4 py-2 md:py-2.5 rounded-full transition-colors whitespace-nowrap"
                 >
                   Buy Now
                 </a>
               </div>
 
-              {/* Top badge — desktop only */}
-              <div className="hidden md:block absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-4 py-3 text-white">
+              {/* 100% Natural badge */}
+              <div className="absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-3 md:px-4 py-2 md:py-3 text-white">
                 <p className="text-xs font-medium">🌿 100%</p>
-                <p className="text-sm font-black">Natural</p>
+                <p className="text-xs md:text-sm font-black">Natural</p>
               </div>
             </div>
           </div>
