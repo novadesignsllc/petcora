@@ -19,13 +19,12 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-3 md:py-24 grid md:grid-cols-2 gap-3 md:gap-12 items-center">
-          {/* Product image — second on mobile, second on desktop (right column) */}
+          {/* Product image */}
           <div className="relative flex items-center justify-center order-2">
-            <div className="relative w-full max-w-[270px] md:max-w-sm mx-auto">
+            <div className="relative w-full max-w-[260px] md:max-w-sm mx-auto">
 
-              {/* Image container — overflow-hidden clips the mobile overlay to rounded corners */}
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <Link href={`/products/${bundle.slug}`} className="absolute inset-0 z-0">
+                <Link href={`/products/${bundle.slug}`} className="absolute inset-0">
                   <Image
                     src={bundle.images[0]}
                     alt={bundle.name}
@@ -34,33 +33,12 @@ export default function HomePage() {
                     priority
                   />
                 </Link>
-                <span className="absolute top-3 left-3 z-10 bg-[#CC2020] text-white text-xs font-black px-3 py-1 rounded-full shadow">
+                <span className="absolute top-3 left-3 bg-[#CC2020] text-white text-xs font-black px-3 py-1 rounded-full shadow">
                   Most Popular
                 </span>
-
-                {/* Mobile overlay callout — inside image so it clips to rounded corners */}
-                <div className="md:hidden absolute bottom-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-sm px-3 py-2 flex items-center justify-between gap-2">
-                  <div>
-                    <p className="text-[10px] text-gray-500 font-medium">3-in-1 Bundle</p>
-                    <p className="text-xs font-black text-[#1A1A1A] leading-tight">Shampoo + Conditioner + Towel</p>
-                    <div className="flex items-baseline gap-1 mt-0.5">
-                      <span className="text-sm font-black text-[#1A1A1A]">${bundle.price}</span>
-                      <span className="text-[10px] text-gray-400 line-through">${bundle.originalPrice}</span>
-                      <span className="text-[10px] font-bold text-[#2E5FA3]">Save $14</span>
-                    </div>
-                  </div>
-                  <a
-                    href={bundle.checkoutUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative z-20 shrink-0 bg-[#F0A500] hover:bg-[#C88A00] text-white text-xs font-black px-3 py-2 rounded-full transition-colors whitespace-nowrap"
-                  >
-                    Buy Now
-                  </a>
-                </div>
               </div>
 
-              {/* Desktop floating callout below image */}
+              {/* Desktop floating callout */}
               <div className="hidden md:flex absolute -bottom-5 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-xl px-4 py-3 items-center justify-between gap-3">
                 <div>
                   <p className="text-xs text-gray-500 font-medium">3-in-1 Bundle</p>
@@ -81,10 +59,10 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* 100% Natural badge */}
-              <div className="absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-3 md:px-4 py-2 md:py-3 text-white">
+              {/* 100% Natural badge — desktop only */}
+              <div className="hidden md:block absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-4 py-3 text-white">
                 <p className="text-xs font-medium">🌿 100%</p>
-                <p className="text-xs md:text-sm font-black">Natural</p>
+                <p className="text-sm font-black">Natural</p>
               </div>
             </div>
           </div>
@@ -98,7 +76,7 @@ export default function HomePage() {
               Your Pet Deserves{" "}
               <span className="text-[#F0A500]">Nothing But the Best</span>
             </h1>
-            <p className="text-sm md:text-lg text-gray-600 mb-3 md:mb-8 leading-relaxed max-w-md">
+            <p className="hidden md:block text-lg text-gray-600 mb-8 leading-relaxed max-w-md">
               Premium grooming products made with real, natural ingredients — no fillers, no harsh chemicals.
             </p>
 
@@ -129,7 +107,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-3 mb-3 md:mb-0">
+            <div className="hidden md:flex items-center gap-3">
               <div className="flex -space-x-2">
                 {["🐶", "🐱", "🐩", "🐕"].map((emoji, i) => (
                   <div
