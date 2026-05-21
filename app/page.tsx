@@ -19,8 +19,8 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-4 pb-3 md:py-24 grid md:grid-cols-2 gap-3 md:gap-12 items-center">
-          {/* Product image — first on mobile, second on desktop */}
-          <div className="relative flex items-center justify-center order-1 md:order-2">
+          {/* Product image — second on mobile, second on desktop (right column) */}
+          <div className="relative flex items-center justify-center order-2">
             <div className="relative w-full max-w-[270px] md:max-w-sm mx-auto">
 
               {/* Image container — overflow-hidden clips the mobile overlay to rounded corners */}
@@ -89,8 +89,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Text content — second on mobile, first on desktop */}
-          <div className="order-2 md:order-1">
+          {/* Text content — first on mobile, first on desktop (left column) */}
+          <div className="order-1">
             <span className="inline-block bg-[#F0A500]/15 text-[#C88A00] text-xs md:text-sm font-bold px-3 md:px-4 py-1 md:py-1.5 rounded-full mb-2 md:mb-5">
               🐾 Less Mess, More Love for Your Pets
             </span>
@@ -102,26 +102,34 @@ export default function HomePage() {
               Premium grooming products made with real, natural ingredients — no fillers, no harsh chemicals.
             </p>
 
-            <div className="flex items-center gap-3 mb-3 md:mb-8">
+            {/* Mobile: single direct-to-checkout CTA */}
+            <a
+              href={bundle.checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:hidden flex items-center justify-center gap-2 bg-[#F0A500] hover:bg-[#C88A00] text-white font-black text-sm px-5 py-3 rounded-full transition-colors shadow-lg shadow-amber-200 mb-3 w-full"
+            >
+              Buy Now — ${bundle.price} <ChevronRight className="w-4 h-4" />
+            </a>
+
+            {/* Desktop: Shop All + Our Story */}
+            <div className="hidden md:flex items-center gap-3 mb-8">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 bg-[#F0A500] hover:bg-[#C88A00] text-white font-black text-sm md:text-base px-5 md:px-7 py-2.5 md:py-3.5 rounded-full transition-colors shadow-lg shadow-amber-200"
+                className="inline-flex items-center gap-2 bg-[#F0A500] hover:bg-[#C88A00] text-white font-black text-base px-7 py-3.5 rounded-full transition-colors shadow-lg shadow-amber-200"
               >
                 Shop All Products
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/about"
-                className="hidden md:inline-flex items-center gap-2 border-2 border-[#2E5FA3] text-[#2E5FA3] hover:bg-[#2E5FA3] hover:text-white font-bold text-base px-6 py-3 rounded-full transition-colors"
+                className="inline-flex items-center gap-2 border-2 border-[#2E5FA3] text-[#2E5FA3] hover:bg-[#2E5FA3] hover:text-white font-bold text-base px-6 py-3 rounded-full transition-colors"
               >
-                Our Story
-              </Link>
-              <Link href="/about" className="md:hidden text-sm font-semibold text-[#2E5FA3] underline underline-offset-2">
                 Our Story
               </Link>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-3 md:mb-0">
               <div className="flex -space-x-2">
                 {["🐶", "🐱", "🐩", "🐕"].map((emoji, i) => (
                   <div
