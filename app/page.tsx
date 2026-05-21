@@ -18,67 +18,10 @@ export default function HomePage() {
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#2E5FA3]/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block bg-[#F0A500]/15 text-[#C88A00] text-sm font-bold px-4 py-1.5 rounded-full mb-5">
-              🐾 Less Mess, More Love for Your Pets
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight mb-5">
-              Your Pet Deserves{" "}
-              <span className="text-[#F0A500]">Nothing But the Best</span>
-            </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-md">
-              Premium grooming products made with real, natural ingredients. No
-              fillers, no harsh chemicals — just clean, happy, healthy pets.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mb-8">
-              <Link
-                href="/shop"
-                className="inline-flex items-center gap-2 bg-[#F0A500] hover:bg-[#C88A00] text-white font-black text-base px-7 py-3.5 rounded-full transition-colors shadow-lg shadow-amber-200"
-              >
-                Shop All Products
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 border-2 border-[#2E5FA3] text-[#2E5FA3] hover:bg-[#2E5FA3] hover:text-white font-bold text-base px-6 py-3 rounded-full transition-colors"
-              >
-                Our Story
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["🐶", "🐱", "🐩", "🐕"].map((emoji, i) => (
-                  <div
-                    key={i}
-                    className="w-9 h-9 rounded-full bg-[#F0A500]/20 border-2 border-white flex items-center justify-center text-base"
-                  >
-                    {emoji}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="flex">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-[#F0A500] text-[#F0A500]"
-                    />
-                  ))}
-                </div>
-                <p className="text-sm text-gray-600 font-medium">
-                  <span className="font-black text-[#1A1A1A]">1,200+</span>{" "}
-                  happy pet owners
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-full max-w-sm mx-auto">
-              {/* Bundle image */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-24 grid md:grid-cols-2 gap-5 md:gap-12 items-center">
+          {/* Product image — first on mobile, second on desktop */}
+          <div className="relative flex items-center justify-center order-1 md:order-2">
+            <div className="relative w-full max-w-[260px] md:max-w-sm mx-auto">
               <Link href={`/products/${bundle.slug}`}>
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <Image
@@ -88,14 +31,14 @@ export default function HomePage() {
                     className="object-cover hover:scale-105 transition-transform duration-500"
                     priority
                   />
-                  <span className="absolute top-4 left-4 bg-[#CC2020] text-white text-xs font-black px-3 py-1.5 rounded-full shadow">
+                  <span className="absolute top-3 left-3 bg-[#CC2020] text-white text-xs font-black px-3 py-1 rounded-full shadow">
                     Most Popular
                   </span>
                 </div>
               </Link>
 
-              {/* Savings callout */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center justify-between gap-3">
+              {/* Savings callout — desktop only to avoid overflow */}
+              <div className="hidden md:flex absolute -bottom-5 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-xl px-4 py-3 items-center justify-between gap-3">
                 <div>
                   <p className="text-xs text-gray-500 font-medium">3-in-1 Bundle</p>
                   <p className="text-sm font-black text-[#1A1A1A]">
@@ -117,10 +60,71 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Top badge */}
-              <div className="absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-4 py-3 text-white">
+              {/* Top badge — desktop only */}
+              <div className="hidden md:block absolute -top-4 -right-4 bg-[#1A1A1A] rounded-2xl shadow-xl px-4 py-3 text-white">
                 <p className="text-xs font-medium">🌿 100%</p>
                 <p className="text-sm font-black">Natural</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Text content — second on mobile, first on desktop */}
+          <div className="order-2 md:order-1">
+            <span className="inline-block bg-[#F0A500]/15 text-[#C88A00] text-xs md:text-sm font-bold px-3 md:px-4 py-1 md:py-1.5 rounded-full mb-2 md:mb-5">
+              🐾 Less Mess, More Love for Your Pets
+            </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-tight mb-2 md:mb-5">
+              Your Pet Deserves{" "}
+              <span className="text-[#F0A500]">Nothing But the Best</span>
+            </h1>
+            <p className="text-sm md:text-lg text-gray-600 mb-4 md:mb-8 leading-relaxed max-w-md">
+              Premium grooming products made with real, natural ingredients — no fillers, no harsh chemicals.
+            </p>
+
+            <div className="flex items-center gap-3 mb-4 md:mb-8">
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 bg-[#F0A500] hover:bg-[#C88A00] text-white font-black text-sm md:text-base px-6 md:px-7 py-3 md:py-3.5 rounded-full transition-colors shadow-lg shadow-amber-200"
+              >
+                Shop All Products
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+              {/* Full button on desktop, text link on mobile */}
+              <Link
+                href="/about"
+                className="hidden md:inline-flex items-center gap-2 border-2 border-[#2E5FA3] text-[#2E5FA3] hover:bg-[#2E5FA3] hover:text-white font-bold text-base px-6 py-3 rounded-full transition-colors"
+              >
+                Our Story
+              </Link>
+              <Link href="/about" className="md:hidden text-sm font-semibold text-[#2E5FA3] underline underline-offset-2">
+                Our Story
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {["🐶", "🐱", "🐩", "🐕"].map((emoji, i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#F0A500]/20 border-2 border-white flex items-center justify-center text-sm"
+                  >
+                    {emoji}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-3.5 h-3.5 md:w-4 md:h-4 fill-[#F0A500] text-[#F0A500]"
+                    />
+                  ))}
+                </div>
+                <p className="text-xs md:text-sm text-gray-600 font-medium">
+                  <span className="font-black text-[#1A1A1A]">1,200+</span>{" "}
+                  happy pet owners
+                </p>
               </div>
             </div>
           </div>
