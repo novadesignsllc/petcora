@@ -21,7 +21,7 @@ export default function HomePage() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-24 grid md:grid-cols-2 gap-5 md:gap-12 items-center">
           {/* Product image — first on mobile, second on desktop */}
           <div className="relative flex items-center justify-center order-1 md:order-2">
-            <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto pb-16 md:pb-0">
+            <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto pb-10 md:pb-0">
               <Link href={`/products/${bundle.slug}`}>
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <Image
@@ -38,7 +38,7 @@ export default function HomePage() {
               </Link>
 
               {/* Savings callout */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[95%] bg-white rounded-2xl shadow-xl px-3 md:px-4 py-3 flex items-center justify-between gap-2">
+              <div className="absolute bottom-3 md:-bottom-5 left-1/2 -translate-x-1/2 w-[95%] bg-white rounded-2xl shadow-xl px-3 md:px-4 py-3 flex items-center justify-between gap-2">
                 <div>
                   <p className="text-xs text-gray-500 font-medium">3-in-1 Bundle</p>
                   <p className="text-xs md:text-sm font-black text-[#1A1A1A]">
